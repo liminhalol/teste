@@ -1,0 +1,21 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.album-grid{
+    /* grid stuff */
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-items: center;
+    justify-items: start;
+    /* other stuff */
+    width: fit-content;
+}
+
+.album-image{
+    /* width: 100%; */
+}
