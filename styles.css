@@ -1,21 +1,54 @@
 *,
 *::after,
-*::before{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.album-grid{
-    /* grid stuff */
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    align-items: center;
-    justify-items: start;
-    /* other stuff */
-    width: fit-content;
+body {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(27, 27, 27);
 }
 
-.album-image{
-    /* width: 100%; */
+.album-grid {
+  /* grid stuff */
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+  justify-items: start;
+  /* other stuff */
+  width: fit-content;
+}
+
+.grid-album {
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-album::before {
+  content: attr(data-name);
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  text-align: left;
+  line-height: 1;
+  color: #fff;
+  font-size: 15px;
+  text-shadow: -2px 1px 0px #000;
+  z-index: 999;
+}
+
+.album-image {
+  display: block;
+  cursor: pointer;
+  transition: all ease 0.1s;
+}
+
+.album-image:hover {
+  transform: scale(1.03);
 }
