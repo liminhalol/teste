@@ -4,9 +4,11 @@ const apiBase = "http://ws.audioscrobbler.com/2.0/?";
 const lastFmKey = "434d4bfa1b0f8028c7a2cbe80c947f6a";
 
 const url = new URLSearchParams(window.location.search);
-const user = url.get("user");
-const period = url.get("period");
-const limit = url.get("limit");
+const [user, period, limit] = [
+  url.get("user"),
+  url.get("period"),
+  url.get("limit"),
+];
 
 async function requestApi(user, method, unique) {
   const parameters = {
@@ -48,11 +50,11 @@ async function renderTopAlbums(user, period, limit) {
     const albumImage = album.image[2]["#text"];
     albumGrid.insertAdjacentHTML(
       "afterbegin",
-      `
-            <div class="grid-album" data-name="${album.name}">
-                <img src="${albumImage}" class="album-image">
-            </div>
-        `
+    `
+    <div class="grid-album" data-name="${album.name}">
+        <img src="${albumImage}" class="album-image">
+    </div>
+    `
     );
   }
 }
